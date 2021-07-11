@@ -17,7 +17,7 @@ metrics produced by Prometheus Python client process and platform collectors.
 ## Installation
 
 Add mixins you want use to your `jsonnetfile.json` definition and run the `jb` command.
-Mixins use `grafana-builder` library, so don't forget to include it as well.
+Runtime mixins rely on `grafana-builder` library, so don't forget to install it as well.
 
 ```
 {
@@ -55,6 +55,25 @@ Mixins use `grafana-builder` library, so don't forget to include it as well.
 }
 ```
 
+## Configuration
+
+Each runtime mixin can be further configured to suilt your needs.
+
+```
+{
+  _config+:: {
+    grafana72: true,
+    grafanaIntervalVar: if self.grafana72 then '$__rate_interval' else '$__interval',
+    pythonInstanceFilter: 'python_info',
+    pythonInstanceSelector: 'instance="$instance"',
+    pythonInstancesSelector: 'instance=~"$instance"',
+    pythonInstanceLabel: 'instance',
+  },
+}
+```
+
+## Usage
+
 You can then import the mixins in your model definition and use it. For example the
 dashboard definition.
 
@@ -72,5 +91,4 @@ local p_rows = import 'github.com/cznewt/runtime-mixins/python-mixin/rows.libson
       .addRow(p_rows.rubyGarbageCollectorRow($._config)),
   },
 }
-
 ```
