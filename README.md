@@ -9,10 +9,30 @@ Collection of reusable application runtime mixins to be included in specific ser
 Mixin for .net applications, and contains a dashboard for visualizing the runtime
 metrics produced by Prometheus .net client process and platform collectors.
 
+### go-mixin
+
+Mixin for golang applications, and contains a dashboard for visualizing the runtime
+metrics produced by Prometheus golang client process and platform collectors.
+
+### jvm-mixin
+
+Mixin for Java applications, and contains a dashboard for visualizing the runtime
+metrics produced by Prometheus jvm client process and platform collectors.
+
+### nodejs-mixin
+
+Mixin for Node.js applications, and contains a dashboard for visualizing the runtime
+metrics produced by Prometheus nodejs client process and platform collectors.
+
 ### python-mixin
 
 Mixin for Python applications, and contains a dashboard for visualizing the runtime
 metrics produced by Prometheus Python client process and platform collectors.
+
+### ruby-mixin
+
+Mixin for Ruby applications, and contains a dashboard for visualizing the runtime
+metrics produced by Prometheus Ruby client process and platform collectors.
 
 ## Installation
 
@@ -55,7 +75,7 @@ Runtime mixins rely on `grafana-builder` library, so don't forget to install it 
 }
 ```
 
-## Configuration
+### Configuration
 
 Each runtime mixin can be further configured to suilt your needs.
 
@@ -72,7 +92,7 @@ Each runtime mixin can be further configured to suilt your needs.
 }
 ```
 
-## Usage
+### Usage
 
 You can then import the mixins in your model definition and use it. For example the
 dashboard definition.
